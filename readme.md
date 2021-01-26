@@ -4,12 +4,18 @@ Link do curso: https://youtube.com/playlist?list=PLHlHvK2lnJndvvycjBqQAbgEDqXxKL
 
 ##### Scripts Start
 
+```
 npm install
+```
 
 ###### Iniciar
 
+```
 npm start
+```
 
 ###### Iniciar com Nodemon
 
+```
 npm run dev
+```
