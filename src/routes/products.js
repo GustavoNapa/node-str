@@ -1,24 +1,7 @@
-'use strict'
+'use strict';
 
 const express = require('express');
-const bodyParser = require('body-parser');
-
-const { get } = require('http');
-
-const app = express();
 const router = express.Router();
-
-const index = require('./routes/index');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// ========== Verbos REST API ===========
-// get 
-// post
-// put
-// delete
-// ======================================
 
 const create = router.post('/', (req, res, next) => {
     res.status(201).send(
@@ -48,9 +31,4 @@ const del = router.delete('/:id', (req, res, next) => {
     );
 });
 
-app.use('/', index);
-app.use('/products', create);
-app.use('/products', put);
-app.use('/products', del);
-
-module.exports = app;
+module.exports = router;
