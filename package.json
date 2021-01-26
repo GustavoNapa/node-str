@@ -7,6 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Gustavo Souza",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.3.1",
+    "express": "^4.17.1",
+    "http": "0.0.1-security"
+  }
 }
