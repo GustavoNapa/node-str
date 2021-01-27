@@ -6,9 +6,10 @@ const bodyParser = require('body-parser');
 const { get } = require('http');
 
 const app = express();
-const router = express.Router();
 
+//Carrega as Rotas
 const index = require('./routes/index');
+const products = require('./routes/product-route');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,8 +22,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // ======================================
 
 app.use('/', index);
-app.use('/products', create);
-app.use('/products', put);
-app.use('/products', del);
+app.use('/products', products);
 
 module.exports = app;
