@@ -2,10 +2,13 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const { get } = require('http');
 
 const app = express();
+
+mongoose.connect('mongodb://napa:valete@nodestr.brksx.mongodb.net/nodestr', { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Carrega as Rotas
 const index = require('./routes/index');
