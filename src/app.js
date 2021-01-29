@@ -10,6 +10,9 @@ const app = express();
 
 mongoose.connect('mongodb://napa:valete@nodestr.brksx.mongodb.net/nodestr', { useNewUrlParser: true, useUnifiedTopology: true });
 
+//Carrega os modelos
+const Product = require('./models/product');
+
 //Carrega as Rotas
 const index = require('./routes/index');
 const products = require('./routes/product-route');
