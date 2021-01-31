@@ -8,7 +8,7 @@ const { get } = require('http');
 
 const app = express();
 
-mongoose.connect('mongodb://napa:valete@nodestr.brksx.mongodb.net/nodestr', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://napa:valete@nodestr.brksx.mongodb.net/nodestr?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Carrega os modelos
 const Product = require('./models/product');
