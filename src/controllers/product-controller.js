@@ -28,6 +28,17 @@ exports.getBySlug = (req, res, next) => {
     });
 }
 
+exports.getById = (req, res, next) => {
+    Product.findById(req.params.id,
+    '_id title description tags price slug').then(data => {
+        res.status(200).send(data);
+    }).catch(e => {
+        res.status(400).send(
+            { message: "Erro ao listar produto", data: e }
+        );
+    });
+}
+
 exports.post = (req, res, next) => {
     var product = new Product(req.body);
 
