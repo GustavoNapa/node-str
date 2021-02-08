@@ -13,6 +13,7 @@ mongoose.connect('mongodb+srv://napa:valete@nodestr.brksx.mongodb.net/nodestr?re
 //Carrega os modelos
 const Product = require('./models/product');
 const Customer = require('./models/customer');
+const Order = require('./models/order');
 
 //Carrega as Rotas
 const index = require('./routes/index');

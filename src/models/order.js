@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
+    customer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Customer'
+    },
     number: {
         type: String,
         required: true
@@ -19,14 +23,21 @@ const schema = new Schema({
         enum: ['created', 'done'],
         default: 'created'
     },
-    customer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Customer'
-    },
-    password: {
-        type: String,
-        required: true
-    },
+    items: [{
+        quantity: {
+            type: Number,
+            required: true,
+            default: 1
+        },
+        price: {
+            type: Number,
+            required: true
+        },
+        pruduct: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    }],
 });
 
 module.exports = mongoose.model('Order', schema);
