@@ -1,27 +1,29 @@
 'use strict'
 
-const ValidatorContract = require('../validator/fluent-validator');
+const guid = require("guid");
+
 const repository = require('../repositories/order-repository');
 
-exports.post = async (req, res, next) => {
-    let contract = new ValidatorContract();
-
-    // Validadores
-    contract.clear();
-    contract.hasMinLen(req.body.name, 3, "O nome precisa ter mais de 3 caracteres.");
-    contract.isEmail(req.body.email, "E-mail inválido");
-    contract.hasMinLen(req.body.password, 6, "A senha precisa ter mais de 6 caracteres.");
-
-    //Se os dados forem invalidos
-    if (!contract.isValid()){
-        res.status(400).send(contract.errors()).end();
-        return;
-    }
-
+exports.get = async (req, res, next) => {
     try{
-        await repository.create(req.body);
+        var data = await repository.get();
+        res.status(200).send(data);
+    }catch( e ){
+        res.status(500).send({
+            message: "Falha ao processar sua requisição"
+        });
+    }
+}
+
+exports.post = async (req, res, next) => {
+    try{
+        await repository.create({
+            customer: req.body.customer,
+            number: guid.raw().substring(0, 6),
+            items: req.body.items
+        });
         res.status(201).send(
-            { message: "Ordem salva com sucesso!" }
+            { message: "Pedido salvo com sucesso!" }
         );
     }catch(e){
         res.status(500).send({

@@ -19,6 +19,7 @@ const Order = require('./models/order');
 const index = require('./routes/index');
 const productsRoute = require('./routes/product-route');
 const customerRoute = require('./routes/customer-route');
+const orderRoute = require('./routes/order-route');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,5 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', index);
 app.use('/products', productsRoute);
 app.use('/customer', customerRoute);
+app.use('/order', orderRoute);
 
 module.exports = app;
