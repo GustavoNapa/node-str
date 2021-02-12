@@ -3,12 +3,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 const { get } = require('http');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://napa:valete@nodestr.brksx.mongodb.net/nodestr?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Carrega os modelos
 const Product = require('./models/product');
