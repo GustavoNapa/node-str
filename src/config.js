@@ -4,5 +4,5 @@ global.EMAIL_TMPL = 'Olá, <strong>{0}</strong>, seja bem vindo ao Node Store';
 module.exports = {
     connectionString: 'mongodb+srv://napa:valete@nodestr.brksx.mongodb.net/nodestr?retryWrites=true&w=majority',
     sendgridKey: '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',
-    containerConnectionString: 'TBD',
+    userImagesBlobConnectionString: 'DefaultEndpointsProtocol=https;AccountName=gustavonode;AccountKey=GlUTJscMM0ON02/prbzoepubG8LEsVmcP/+LW4kfpH7Lljd4OFxolMwPStGwovqqYG7DDbEpHYcnRjm8cryNxQ==;EndpointSuffix=core.windows.net',
 }
